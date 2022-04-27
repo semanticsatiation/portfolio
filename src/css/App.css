@@ -241,6 +241,7 @@ footer a:first-child {
 
 .mountain {
   position: absolute;
+  height: calc(130vh);
   bottom: 0;
   width: 100%;
 }
