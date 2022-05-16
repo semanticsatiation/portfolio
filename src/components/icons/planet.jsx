@@ -9,7 +9,7 @@ function Planet({type}) {
       version="1.1"
       viewBox="0 0 2829.333 2829.333"
       xmlSpace="preserve"
-      className={type}
+      className={`planet ${type}`}
     >
       <g transform="matrix(1.33333 0 0 -1.33333 0 2829.333)">
         <g transform="scale(.1)">

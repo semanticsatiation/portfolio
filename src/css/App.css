@@ -1,9 +1,11 @@
-#root, .home-container {
-  height: 100vh;
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-.warp {
-  background: red;
+#root, .home-container {
+  height: 100vh;
 }
 
 a {
@@ -23,15 +25,12 @@ html {
   justify-content: flex-start;
   align-items: center;
   color: white;
-  font-size: 20px;
+  /* rem is adjusting font size according to parent (which is root) */
+  font-size: clamp( 1rem, 10vw, 4vh);
   overflow: hidden;
 }
 
-div[class*="-content"] {
-  z-index: 5;
-}
-
-.about-container {
+.about-container, .credit-images {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,7 +40,7 @@ div[class*="-content"] {
 
 .intro-words {
   margin-bottom: 50px;
-  font-size: 30px;
+  font-size: clamp( 1rem, 6vw, 3.5vh);
   font-weight: bolder;
   text-align: center;
 }
@@ -51,72 +50,58 @@ div[class*="-content"] {
 }
 
 .intro-words span:nth-child(1) {
-  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2s; /* Firefox < 16 */
-  -ms-animation: fadein 2s; /* Internet Explorer */
-  -o-animation: fadein 2s; /* Opera < 12.1 */
-  animation: ease 2s fadein;
+  -webkit-animation: FadeIn 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: FadeIn 2s; /* Firefox < 16 */
+  -ms-animation: FadeIn 2s; /* Internet Explorer */
+  -o-animation: FadeIn 2s; /* Opera < 12.1 */
+  animation: ease 2s FadeIn;
 }
 
 .intro-words span:nth-child(2) {
-  -webkit-animation: fadein 2.5s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2.5s; /* Firefox < 16 */
-  -ms-animation: fadein 2.5s; /* Internet Explorer */
-  -o-animation: fadein 2.5s; /* Opera < 12.1 */
-  animation: ease 2.5s fadein;
+  -webkit-animation: FadeIn 2.5s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: FadeIn 2.5s; /* Firefox < 16 */
+  -ms-animation: FadeIn 2.5s; /* Internet Explorer */
+  -o-animation: FadeIn 2.5s; /* Opera < 12.1 */
+  animation: ease 2.5s FadeIn;
 }
 
 .intro-words span:nth-child(3) {
-  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 3s; /* Firefox < 16 */
-  -ms-animation: fadein 3s; /* Internet Explorer */
-  -o-animation: fadein 3s; /* Opera < 12.1 */
-  animation: ease 3s fadein;
+  -webkit-animation: FadeIn 3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: FadeIn 3s; /* Firefox < 16 */
+  -ms-animation: FadeIn 3s; /* Internet Explorer */
+  -o-animation: FadeIn 3s; /* Opera < 12.1 */
+  animation: ease 3s FadeIn;
 }
 
 .intro-words span:nth-child(4) {
-  -webkit-animation: fadein 3.5s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 3.5s; /* Firefox < 16 */
-  -ms-animation: fadein 3.5s; /* Internet Explorer */
-  -o-animation: fadein 3.5s; /* Opera < 12.1 */
-  animation: ease 3.5s fadein;
+  -webkit-animation: FadeIn 3.5s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: FadeIn 3.5s; /* Firefox < 16 */
+  -ms-animation: FadeIn 3.5s; /* Internet Explorer */
+  -o-animation: FadeIn 3.5s; /* Opera < 12.1 */
+  animation: ease 3.5s FadeIn;
 }
 
 .intro-words span:nth-child(5) {
-  -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 4s; /* Firefox < 16 */
-  -ms-animation: fadein 4s; /* Internet Explorer */
-  -o-animation: fadein 4s; /* Opera < 12.1 */
-  animation: ease 4s fadein;
+  -webkit-animation: FadeIn 4s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: FadeIn 4s; /* Firefox < 16 */
+  -ms-animation: FadeIn 4s; /* Internet Explorer */
+  -o-animation: FadeIn 4s; /* Opera < 12.1 */
+  animation: ease 4s FadeIn;
 }
 
-.down-arrow {
-  cursor: pointer;
-  position: fixed;
-  bottom: 90px;
-  right: 15px;
-  background: initial;
-  font-size: 40px;
-  pointer-events: pointer;
-  height: 35px;
-  z-index: 67;
+.about-content {
+  position: relative;
+  width: 70%;
+  font-size: clamp(1rem, 6vw, 3.5vh);
+  text-align: center; 
 }
 
 .about-content > span {
   display: block;
   position: relative;
   top: 0;
-  line-height: 40px;
+  line-height: 1.4em;
 }
-
-.about-content {
-  position: relative;
-  display: flex;
-  width: 70%;
-  font-size: 25px;
-  text-align: center; 
-}
-
 
 .mountain-content {
   display: flex;
@@ -126,8 +111,7 @@ div[class*="-content"] {
   position: relative;
   height: 100vh;
   width: 100%;
-
-  animation: PanToMountain 6s;
+  animation: PanToMountain 5s;
 }
 
 .home-links {
@@ -135,38 +119,38 @@ div[class*="-content"] {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  font-size: 25px;
+  font-size: clamp(1rem, 6vw, 4vh);
 }
 
 .home-links a:not(:first-child) {
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 .glow {
-  transition: 0.4s;
+  transition: text-shadow 0.4s;
 }
 
 .glow:hover {
-  transition: 0.4s;
+  transition: text-shadow 0.4s;
   text-shadow: 0 0 10px #fff, 0 0 20px #fff;
 }
 
 button {
   text-align: center;
-  font-size: 20px;
   height: 30px;
   width: 20%;
 }
 
 .projects-list {
-  display: inline-block;
-  overflow: auto;
-  padding: 0 10px;
+  display: flex;
+  flex-wrap: wrap;
   text-align: center;
-  margin: 0;
-  height: calc(100% - 120px);
-  font-size: 0.9em;
-  list-style-type: none;
+  justify-content: center;
+  overflow: scroll;
+  align-items: center;
+  height: calc(87vh - 1rem - 20px);
+  width: 70vw;
+  font-size: clamp(0.5rem, 2vw, 2vh);
 }
 
 .projects-list h1 {
@@ -176,24 +160,27 @@ button {
 }
 
 .projects-list img {
-  width: 80%;
-  transition: 0.4s;
+  transition: box-shadow 0.4s;
   border-radius: 10px;
+  width: 40vw;
 }
 
 .projects-list li {
   padding: 10px;
-  max-width: 750px;
 }
 
 .projects-list li:hover img {
-  transition: 0.4s;
+  transition: box-shadow 0.4s;
   border-radius: 10px;
   box-shadow: 0 0 20px 0px #a6cfdf;
 }
 
-.hidden {
+.remove {
   display: none;
+}
+
+.invisible {
+  opacity: 0;
 }
 
 footer {
@@ -202,94 +189,61 @@ footer {
   align-items: center;
   position: fixed;
   bottom: 0;
-  height: 50px;
+  height: 2em;
   width: 100%;
   background: rgba(0, 0, 0, 0.575);
   z-index: 6;
 }
 
 footer a {
-  font-size: 40px;
+  /* em is adjusting font size according to parent (which is footer) */
+  font-size: 1.5em;
 }
 
 footer a:first-child {
-  margin-right: 25px;
+  margin-right: 2em;
 }
 
 .icon-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 35px;
-  transition: 0.4s;
+  height: 0.8em;
+  width: 0.8em;
+  transition: box-shadow 0.4s;
   color: white;
 }
 
 .icon-container:hover  {
-  border-radius: 50%;
-  box-shadow: 0 0 40px 0px white;
+  border-radius: 10%;
+  box-shadow: 0 0 1em 0px white;
 }
 
 .mountain-container {
   position: absolute;
-  height: 500px;
+  height: 25rem;
   bottom: 0;
   z-index: -1;
   width: 100%;
   pointer-events: none;
 }
 
-.mountain {
-  position: absolute;
-  height: calc(130vh);
-  bottom: 0;
-  width: 100%;
-}
-
 .clouds {
   position: absolute;
-  bottom: 0;
   z-index: 1;
-  height: 80vw;
-  max-height: 100%;
+  height: 100%;
   width: 100%;
-  background:transparent url('https://image.ibb.co/bT4N7T/clouds.png') repeat top center;
-  filter: brightness(1000%);
-	animation: move-clouds-back 200s linear infinite;
+  bottom: 2em;
+  background:transparent url('https://image.ibb.co/bT4N7T/clouds.png') repeat-x top center;
+  filter: brightness(800%);
+	animation: MoveClouds 100s infinite;
 }
 
-@keyframes move-clouds-back {
-	from {background-position:0 0;}
-	to {background-position:10000px 0;}
-}
-
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+.mountain {
+  position: absolute;
+  height: 120vh;
+  bottom: 0;
+  width: 100%;
 }
 
 .star-field {
@@ -302,42 +256,12 @@ footer a:first-child {
   left: 0;
 }
 
-.white {
-  background: #fff;
-  box-shadow: 0 0 15px #fff;
-}
-
-.yellow {
-  background: #efcd75;
-  /* box-shadow: 120px 80px 40px 20px #efcd75; */
-  box-shadow:
-  0 0 60px 30px #efcd75,  /* inner white */
-  0 0 100px 60px #f3ce68, /* middle magenta */
-  0 0 140px 90px #efcd75; /* outer cyan */
-}
-
-.blue {
-  background: #0d5ed1;
-  box-shadow: 0 0 15px #0d5ed1;
-}
-
-.red {
-  background: #f40a0b;
-  box-shadow: 0 0 15px #f40a0b;
-}
-
-[class$="-rocket"], [class*="astronaut"], [class*="planet"] {
+[class$="-rocket"], [class*="planet"], .floating-astronaut {
   pointer-events: none;
 }
 
-.astronaut, .floating-astronaut {
-  position: absolute;
-  height: 150px;
-  width: 150px;
-}
-
 .floating-astronaut {
-  animation: FloatAstronaut 10s linear infinite;
+  animation: FloatAstronaut 10s linear infinite, Rotate 10s linear infinite;
 }
 
 .flying-rocket {
@@ -347,10 +271,17 @@ footer a:first-child {
   animation: MoveUpDown 4s linear infinite, ExposeRocket 0.5s linear;
 }
 
-.flame {
+.flying-rocket .rocket-svg, .off-screen-rocket .rocket-svg {
+  height: 10em;
+  width: 10em;
+}
+
+[class$="-rocket"] .flame {
   position: absolute;
   z-index: -1;
-  bottom: -30px;
+  height: 2em;
+  width: 2em;
+  top: 9.3em;
 }
 
 .speed-up {
@@ -362,31 +293,25 @@ footer a:first-child {
 .flames {
   position: absolute;
   z-index: -1;
-  bottom: 20px;
-  right: 35px;
   transform: rotate(180deg);
+  height: 10em;
+  width: 10em;
+  right: 2em;
 }
 
 .flames > .flame:nth-child(1) {
   animation: Flicker 0.5s infinite;
-  left: 100px;
+  left: 1em;
 }
 
 .flames > .flame:nth-child(2) {
   animation: Flicker 0.7s infinite;
-  left: 125px;
+  left: 2em;
 }
 
 .flames > .flame:nth-child(3) {
   animation: Flicker 0.4s infinite;
-  left: 145px;
-}
-
-.flame {
-  position: absolute;
-  z-index: -1;
-  width: 90px;
-  height: 90px;
+  left: 3em;
 }
 
 .warp > .flame {
@@ -405,8 +330,8 @@ footer a:first-child {
 .far-planet {
   position: absolute;
   top: 50%;
-  height: 80px;
-  width: 80px;
+  height: 2em;
+  width: 2em;
   animation: FarPlanetPassBy 1.5s linear; 
   animation-fill-mode: forwards;
 }
@@ -414,45 +339,48 @@ footer a:first-child {
 .close-planet {
   position: absolute;
   margin: auto;
-  height: 200vh;
-  width: 200vw;
+  height: 80em;
+  width: 80em;
   animation: ClosePlanetPassBy 1.5s linear;
   animation-fill-mode: forwards;
 }
 
 .astronaut {
   z-index: 9999;
-  right: -20px;
-  bottom: 95px;
+  right: -3vw;
+  bottom: calc(8.5vh - 1em);
+  border-radius: 10px;
+}
+
+.landed-rocket {
+  bottom: calc(8vh - 1rem);
 }
 
 .landed-rocket, .landing-rocket {
   position: absolute;
-  right: -50px;
+  right: 2vw;
+}
+
+.mountain-content .astronaut, .home-container > .floating-astronaut {
+  position: absolute;
+  height: 20vh;
+  width: 20vw;
+}
+
+.landed-rocket .rocket-svg {
+  height: 26vh;
+  width: 26vw;
+}
+
+.landing-rocket .rocket-svg {
+  height: 10em;
+  width: 10em;
 }
 
 .landing-rocket {
-  animation: LandRocket 2s linear; 
+  z-index: 9999;
+  animation: LandRocket 1.5s linear;
   animation-fill-mode: forwards;
-}
-
-.landed-rocket {
-  bottom: 103px;
-}
-
-.landing-rocket .rocket-svg, .landed-rocket .rocket-svg {
-  height: 300px;
-  width: 300px;
-}
-
-.landing-rocket .flames {
-  bottom: 6px;
-  right: -3px;
-}
-
-.landing-rocket .flame {
-  height: 60px;
-  width: 60px;
 }
 
 .off-screen-rocket {
@@ -462,37 +390,64 @@ footer a:first-child {
   animation: MoveOffScreen 2s;
 }
 
-@keyframes MoveOffScreen {
+.pan-in-about {
+  animation: PanToAbout 3s;
+}
+
+.pan-in-credits {
+  animation: PanToCredits 3s;
+  animation-fill-mode: forwards;
+}
+
+.pan-out {
+  position: fixed;
+  animation: PanAwayFromAbout 3s;
+}
+
+.current-link {
+  text-decoration: underline;
+}
+
+.credit-images li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.credit-images .astronaut, .credit-images .rocket-svg, .credit-images .floating-astronaut, .credit-images .flame, .credit-images .planet {
+  left: 0;
+  height: 15vh;
+  width: 15vw;
+}
+
+.glow-blue {
+  animation: GlowBlue 1s ease-in-out infinite alternate;
+}
+
+.glow-red {
+  animation: GlowRed 2s ease-in-out infinite alternate;
+}
+
+@keyframes GlowBlue {
   from {
-    left: 32%;
+    filter: drop-shadow( 0 0 2px blue) drop-shadow( 0 0 2px blue) drop-shadow( 0 0 1px blue);
   }
 
   to {
-    left: 200%;
+    
+    filter: drop-shadow( 0 0 6px blue) drop-shadow( 0 0 3px blue) drop-shadow( 0 0 10px blue);
   }
 }
 
-@keyframes ExposeRocket {
+@keyframes GlowRed {
   from {
-    left: -20%;
+    filter: drop-shadow( 0 0 2px red) drop-shadow( 0 0 2px red) drop-shadow( 0 0 1px red);
   }
 
   to {
-    left: 32%;
+    
+    filter: drop-shadow( 0 0 8px red) drop-shadow( 0 0 3px red) drop-shadow( 0 0 10px red);
   }
-}
-
-@keyframes PanToMountain {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-.pan-in {
-  animation: PanToAbout 5s;
 }
 
 @keyframes PanToAbout {
@@ -504,9 +459,13 @@ footer a:first-child {
   }
 }
 
-.pan-out {
-  position: fixed;
-  animation: PanAwayFromAbout 5s;
+@keyframes PanToCredits {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(4em);
+  }
 }
 
 @keyframes PanAwayFromAbout {
@@ -523,7 +482,7 @@ footer a:first-child {
     transform: translateY(-120%);
   }
   to {
-    transform: translateY(300%);
+    transform: translateY(400%);
   }
 }
   
@@ -538,7 +497,7 @@ footer a:first-child {
 
 @keyframes FarPlanetPassBy {
   from {
-    right: -10%;
+    right: -20%;
   }
 
   to {
@@ -571,7 +530,9 @@ footer a:first-child {
   50% {
     top: 40px;
   }
+}
 
+@keyframes Rotate {
   from {
     transform: rotate(0deg);
   }
@@ -587,5 +548,73 @@ footer a:first-child {
 
   to {
     transform: rotateY(0deg);
+  }
+}
+
+@keyframes MoveClouds {
+  from {
+    background-position:0 0
+  }
+
+  to {
+    background-position: -300% 0
+  }
+}
+
+@keyframes FadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes FadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes FadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes FadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes FadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes MoveOffScreen {
+  from {
+    left: 32%;
+  }
+
+  to {
+    left: 200%;
+  }
+}
+
+@keyframes ExposeRocket {
+  from {
+    left: -20%;
+  }
+
+  to {
+    left: 32%;
+  }
+}
+
+@keyframes PanToMountain {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
   }
 }

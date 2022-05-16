@@ -18,6 +18,7 @@ function Star({speed, index, starFieldWidth, top, left, isWarp}) {
     const setNewLeftPosition = () => {
         let currentLeft = parseInt(`${leftSide}`, 10);
         let leftChangeAmount = speed === 0 ? (0) : (speed + getStarRelativeSpeed(index));
+
         let leftDiff;
 
         if (currentLeft - leftChangeAmount < 0) {
@@ -31,35 +32,35 @@ function Star({speed, index, starFieldWidth, top, left, isWarp}) {
 
     const getStarColor = (index) => {
         if (index % 8 === 0)
-        return 'red';
+            return 'red';
         else if (index % 10 === 0)
-        return 'yellow';
+            return 'yellow';
         else if (index % 17 === 0)
-        return 'blue';
+            return 'dodgerblue';
         else
-        return 'white';
+            return 'white';
     }
     
     const getStarDistance = (index) => {
         if (index % 6 === 0)
-        return '2px';
+            return '0.1em';
         else if (index % 9 === 0)
-        return '4px';
+            return '0.2em';
         else if (index % 2 === 0)
-        return '1px';
+            return '0.05em';
         else
-        return '3px';
+            return '0.15em';
     }
 
     const getStarRelativeSpeed = (index) => {
         if (index % 6 === 0)
-        return 1;
+            return 1;
         else if (index % 9 === 0)
-        return 2;
+            return 2;
         else if (index % 2 === 0)
-        return -1;
+            return -1;
         else
-        return 0;
+            return 0;
     }
 
     const distance = getStarDistance(index);
@@ -73,9 +74,10 @@ function Star({speed, index, starFieldWidth, top, left, isWarp}) {
                 position: 'absolute',
                 top: top + 'px', 
                 left: leftSide + 'px',
-                boxShadow: `0px 0px 25px 2px ${color}`,
+                // brightness of star relative to their distance
+                boxShadow: `0px 0px ${1 - parseInt(distance)}em  ${0.09 - parseInt(distance)}em ${color}`,
                 background: `${color}`
-            }, isWarp ? ({width: '200px', transition: 'width 4s'}) : ({width: distance}))
+            },  isWarp ? ({width: '200px', transition: 'width 4s'}) : ({width: distance}))
         }></div>
     )
 }

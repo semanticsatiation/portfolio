@@ -40,7 +40,7 @@ function Projects(params) {
                 </li>
                 <li>
                     <a href="https://fast-wildwood-33035.herokuapp.com/">
-                        <h1>New York Times Mock page</h1>
+                        <h1>New York Times Mock Page</h1>
                         <img src="https://user-images.githubusercontent.com/74139058/139915710-9c62c30c-84f8-4044-ac18-ec839607fb2e.png" alt="new york times mock page screen shot"/>
                     </a>
                 </li>
@@ -55,7 +55,7 @@ function Projects(params) {
                 <Rocket/>
             </div>
 
-            <Astronaut/>
+            <Astronaut />
         </>
     )
 }

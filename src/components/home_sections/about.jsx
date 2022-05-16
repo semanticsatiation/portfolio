@@ -12,7 +12,7 @@ function About(params) {
             </div>
 
             <div className="about-content">
-                <span>I am a Web Developer with a passion for developing web applications that have a big and positive impact on people's lives.  In addition to coding and learning new tech, I enjoy playing the piano, building PCs, playing board games and video games, and I love learning about space and the human body and mind.</span>
+                <span>I am a Web Developer with a passion for developing web applications that have a big and positive impact on people's lives.  In addition to coding and learning new tech, I enjoy playing the piano, building PCs, playing board games and video games, and I love learning about space.</span>
             </div>
         </>
     )
