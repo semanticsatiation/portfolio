@@ -210,7 +210,7 @@ function App() {
 
       <nav className='home-links'>
         <a className={`glow ${currentLink === aboutLink ? ("current-link") : ("")}`} onClick={showAbout}>About</a>
-        <a href="https://docs.google.com/document/d/1DQPFYJIr2aiuMMZvjc8Qi7Gps8EPxye81WBZCx3o1Fw/edit?usp=sharing" className="glow">Resume</a>
+        <a className="glow" href="https://docs.google.com/document/d/1DQPFYJIr2aiuMMZvjc8Qi7Gps8EPxye81WBZCx3o1Fw/edit?usp=sharing" target="_blank" rel="noreferrer noopener">Resume</a>
         <a className={`glow ${currentLink === projectsLink ? ("current-link") : ("")}`} onClick={showProjects}>Projects</a>
         <a className={`glow ${currentLink === creditsLink ? ("current-link") : ("")}`} onClick={showCredits}>Credits</a>
       </nav>
