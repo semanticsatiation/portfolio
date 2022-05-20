@@ -50,6 +50,8 @@ function App() {
 
   const [currentLink, setCurrentLink] = useState(aboutLink);
 
+  const [skipWarp, setSkipWarp] = useState(false); 
+
   const handleResize = () => {
     setWindowStars();
 
@@ -94,41 +96,55 @@ function App() {
 
   const showProjects = () => {
     if (!isTraveling && !showProjectsSection) {
-      setShowAboutSection(false);
-      setShowCreditSection(false);
       setIsTraveling(true);
-      setSpeed(0);
-      setStarsAmount(18);
       setCurrentLink(projectsLink);
 
-      setTimeout(() => {
-        setIsWarp(true);
+      if (!skipWarp) {
+        setShowAboutSection(false);
+        setShowCreditSection(false);
+        setSpeed(0);
+        setStarsAmount(18);
+
         setTimeout(() => {
-          setExposePlanetAfar(true);
-          setIsWarp(false);
-          setSpeed(100);
-
+          setIsWarp(true);
           setTimeout(() => {
-            setExposePlanetAfar(false);
-            setExposePlanetClose(true);
-
+            setExposePlanetAfar(true);
+            setIsWarp(false);
+            setSpeed(100);
+  
             setTimeout(() => {
-              setExposePlanetClose(false);
-              setRocketClass("off-screen-rocket");
-
+              setExposePlanetAfar(false);
+              setExposePlanetClose(true);
+  
               setTimeout(() => {
-                setRocketClass("landing-rocket");
-                setShowProjectsSection(true);
-
+                setExposePlanetClose(false);
+                setRocketClass("off-screen-rocket");
+  
                 setTimeout(() => {
-                  setRocketClass("remove");
-                  setIsTraveling(false);
-                }, 2000);
-              }, 1000);
+                  setRocketClass("landing-rocket");
+                  setShowProjectsSection(true);
+  
+                  setTimeout(() => {
+                    setRocketClass("remove");
+                    setIsTraveling(false);
+                    setSkipWarp(true);
+                  }, 2000);
+                }, 1000);
+              }, 1500);
             }, 1500);
-          }, 1500);
-        }, 3000);
-      }, 1500);
+          }, 3000);
+        }, 1500);
+      } else {
+        setShowProjectsSection(true);
+        setAboutClassAction("pan-out");
+        setCreditsClassAction("pan-out");
+        setTimeout(() => {
+          setShowAboutSection(false);
+          setShowCreditSection(false);
+          setIsTraveling(false);
+          setSkipWarp(true);
+        }, 2000);
+      }
     }
   }
 
@@ -183,7 +199,7 @@ function App() {
       }</div>
 
       {
-        showAboutSection === false && showCreditSection === false ? (
+        !showAboutSection && !showCreditSection && !skipWarp ? (
           <div className={rocketClass}>
             <Rocket/>
             <div className={`flames ${isWarp || speed === 100 ? ("warp") : ("")}`}>
