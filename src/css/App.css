@@ -228,17 +228,6 @@ footer a:first-child {
   pointer-events: none;
 }
 
-.clouds {
-  position: absolute;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-  bottom: 2em;
-  background:transparent url('https://image.ibb.co/bT4N7T/clouds.png') repeat-x top center;
-  filter: brightness(800%);
-	animation: MoveClouds 100s infinite;
-}
-
 .mountain {
   position: absolute;
   height: 120vh;
@@ -548,16 +537,6 @@ footer a:first-child {
 
   to {
     transform: rotateY(0deg);
-  }
-}
-
-@keyframes MoveClouds {
-  from {
-    background-position:0 0
-  }
-
-  to {
-    background-position: -300% 0
   }
 }
 

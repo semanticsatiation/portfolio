@@ -47,7 +47,6 @@ function Projects(params) {
             </ul>
 
             <div className="mountain-container">
-                <div className="clouds"></div>
                 <img className="mountain" src="https://user-images.githubusercontent.com/74139058/141395678-2672719c-641e-4d53-8c2f-fbe14110216b.png" alt="mountain"/>
             </div>
 
