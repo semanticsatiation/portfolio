@@ -272,7 +272,7 @@ function App() {
         <hr/>
         <a className={`glow ${currentLink === skillsLink ? ("current-link") : ("")}`} onClick={showSkills}>Skills</a>
         <hr/>
-        <a className="glow" href="https://docs.google.com/document/d/1DQPFYJIr2aiuMMZvjc8Qi7Gps8EPxye81WBZCx3o1Fw/edit?usp=sharing" target="_blank" rel="noreferrer noopener">Resume</a>
+        <a className="glow" href="https://docs.google.com/document/d/1s7vt7pH5bBh5JxGzflGlJgQS4to3oWQjArSQ1wly7Uo/edit?usp=sharing" target="_blank" rel="noreferrer noopener">Resume</a>
         <hr/>
         <a className={`glow ${currentLink === projectsLink ? ("current-link") : ("")}`} onClick={showProjects}>Projects</a>
         <hr/>
