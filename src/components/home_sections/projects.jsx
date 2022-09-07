@@ -1,46 +1,41 @@
 import React from "react";
+import { defaultProject } from "../../App";
 import Astronaut from "../icons/astronaut";
 import Rocket from "../icons/rocket";
 
-function Projects(params) {
+function Projects({setMainProject}) {
     return (
         <>
             <ul className="projects-list">
                 <li>
-                    <a href="https://bugoff.herokuapp.com/#/login" target="_blank" rel="noreferrer noopener">
-                        <h1>Bug Tracking App</h1>
-                        <img src="https://user-images.githubusercontent.com/74139058/139449480-9c350a30-f7c3-4e83-960b-2df40375c6a6.png" alt="bug off log in"/>
+                    <a onClick={e => setMainProject(defaultProject)} target="_blank" rel="noreferrer noopener">
+                        <img src="https://user-images.githubusercontent.com/74139058/172012433-04d6c22f-df66-4955-b314-a63f9e49ca35.jpg" alt="bug off log in"/>
                     </a>
                 </li>
                 <li>
-                    <a href="https://chess-app-semantic.herokuapp.com/" target="_blank" rel="noreferrer noopener">
-                        <h1>Chess Game</h1>
-                        <img src="https://user-images.githubusercontent.com/74139058/148338957-ba49e070-113a-43c4-878b-170fb632d8ec.png" alt="chess game"/>
+                    <a onClick={e => setMainProject({title: "Chess", description: "Playable version of chess.", image: "https://user-images.githubusercontent.com/74139058/172012440-6fa162a3-ab2e-4faf-8ba3-aa2b650217dd.jpg", link: "https://chess-app-semantic.herokuapp.com/", alt: "chess game", github: "https://github.com/semanticsatiation/chess"})} target="_blank" rel="noreferrer noopener">
+                        <img src="https://user-images.githubusercontent.com/74139058/172012440-6fa162a3-ab2e-4faf-8ba3-aa2b650217dd.jpg" alt="chess game"/>
                     </a>
                 </li>
 
                 <li>
-                    <a href="https://maze-solver-semantic.herokuapp.com/" target="_blank" rel="noreferrer noopener">
-                        <h1>Maze Solving App</h1>
-                        <img src="https://user-images.githubusercontent.com/74139058/153266555-3beaef03-4926-46a7-9370-91d337d69f28.png" alt="solved maze"/>
+                    <a onClick={e => setMainProject({title: "Path Finder", description: "Path Finder is an application that helps users visualize/compare different maze algorithms.", image: "https://user-images.githubusercontent.com/74139058/172012437-f9f92694-48f1-42d9-bc35-98a99735f204.jpg", link: "https://maze-solver-semantic.herokuapp.com/", alt: "maze solver", github: "https://github.com/semanticsatiation/maze-runner"})} target="_blank" rel="noreferrer noopener">
+                        <img src="https://user-images.githubusercontent.com/74139058/172012437-f9f92694-48f1-42d9-bc35-98a99735f204.jpg" alt="solved maze"/>
                     </a>
                 </li>
                 <li>
-                    <a href="https://semantic-mine-sweeper.herokuapp.com/" target="_blank" rel="noreferrer noopener">
-                        <h1>Minesweeper Game</h1>
+                    <a onClick={e => setMainProject({title: "Minesweeper", description: "Playable version of the classic game Minesweeper.", image: "https://user-images.githubusercontent.com/74139058/144053740-b69c842b-538c-4ebc-b933-b827266b39d3.png", link: "https://semantic-mine-sweeper.herokuapp.com/", alt: "minesweeper game", github: "https://github.com/semanticsatiation/minesweeper"})} target="_blank" rel="noreferrer noopener">
                         <img src="https://user-images.githubusercontent.com/74139058/144053740-b69c842b-538c-4ebc-b933-b827266b39d3.png" alt="minesweeper game"/>
                     </a>
                 </li>
                 <li>
-                    <a href="https://flix-movies.herokuapp.com/" target="_blank" rel="noreferrer noopener">
-                        <h1>Movie App</h1>
-                        <img src="https://user-images.githubusercontent.com/74139058/140382118-9cc3b1eb-d7be-4b85-94fc-e363bffb80b0.png" alt="movie app screenshot"/>
+                    <a onClick={e => setMainProject({title: "Movie Studio", description: "Movie application that allows users to review movies and allows admins to add movies.", image: "https://user-images.githubusercontent.com/74139058/172012435-875c5723-4501-42f6-8185-7357523814bd.jpg", link: "https://flix-movies.herokuapp.com/", alt: "movie app", github: "https://github.com/semanticsatiation/movie-app"})} target="_blank" rel="noreferrer noopener">
+                        <img src="https://user-images.githubusercontent.com/74139058/172012435-875c5723-4501-42f6-8185-7357523814bd.jpg" alt="movie app screenshot"/>
                     </a>
                     
                 </li>
                 <li>
-                    <a href="https://fast-wildwood-33035.herokuapp.com/" target="_blank" rel="noreferrer noopener">
-                        <h1>New York Times Mock Page</h1>
+                    <a onClick={e => setMainProject({title: "New York Times", description: "Single page website that mocks the New York Times (2019).", image: "https://user-images.githubusercontent.com/74139058/139915710-9c62c30c-84f8-4044-ac18-ec839607fb2e.png", link: "https://fast-wildwood-33035.herokuapp.com/", alt: "new york times mock page", github: "https://github.com/semanticsatiation/new-york-times-mock-page"})} target="_blank" rel="noreferrer noopener">
                         <img src="https://user-images.githubusercontent.com/74139058/139915710-9c62c30c-84f8-4044-ac18-ec839607fb2e.png" alt="new york times mock page screen shot"/>
                     </a>
                 </li>
@@ -54,7 +49,7 @@ function Projects(params) {
                 <Rocket/>
             </div>
 
-            <Astronaut />
+            <Astronaut id="landed-astronaut"/>
         </>
     )
 }
