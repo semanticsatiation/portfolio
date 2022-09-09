@@ -25,7 +25,7 @@ html {
   align-items: center;
   color: white;
   /* rem is adjusting font size according to parent (which is root) */
-  font-size: clamp( 1rem, 10vw, 4vh);
+  font-size: clamp(1rem, 10vw, 4vh);
   overflow: hidden;
 }
 
@@ -115,6 +115,33 @@ html {
   animation: PanToMountain 5s;
 }
 
+.mobile-projects {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  height: calc(100% - 4em);
+  gap: 10px;
+  width: 100%;
+}
+
+.mobile-projects > li:first-of-type {
+  margin-top: 5px;
+}
+
+.mobile-projects .flip-card {
+  position: relative;
+}
+
+.mountain-content > .flip-card {
+  display: none;
+}
+
+.projects-list {
+  display: none;
+}
+
 .main-project {
   display: flex;
   position: absolute;
@@ -128,14 +155,10 @@ html {
 
 .flip-card {
   background-color: transparent;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-
   display: flex;
-  position: absolute;
   z-index: 0;
   height: 9.5em;
   width: 9.5em;
-  bottom: 40%;
 }
 
 /* This container is needed to position the front and back side */
@@ -287,42 +310,6 @@ button {
   text-align: center;
   height: 30px;
   width: 20%;
-}
-
-.projects-list {
-  position: absolute;
-  display: flex;
-  text-align: center;
-  align-items: flex-end;
-  bottom: calc(7vh);
-  overflow: scroll;
-  align-items: center;
-  width: calc(99vw - 5px);
-  left: 5px;
-  font-size: clamp(0.5rem, 0.6vw, 1vh);
-}
-
-.projects-list img {
-  transition: box-shadow 0.4s;
-  border-radius: 10px;
-  height:calc(10em - 1vh);
-  width:calc(10em - 1vw);
-}
-
-.projects-list li {
-  display: flex;
-  align-items: space-between;
-  padding: 10px;
-}
-
-.projects-list li:first-of-type {
-  padding: 10px 10px 10px 0;
-}
-
-.projects-list li:hover img {
-  transition: box-shadow 0.4s;
-  border-radius: 10px;
-  box-shadow: 0 0 12px 0px #a6cfdf;
 }
 
 .remove {
@@ -574,11 +561,11 @@ button {
 }
 
 .skills-container {
-  height: calc(88%);
+  height: calc(100vh - 3.2em);
 }
 
 .skills {
-  overflow: scroll;
+  overflow: auto;
   height: calc(100% - 2em);
   text-align: center;
   font-size: 0.7em;
@@ -648,7 +635,7 @@ button {
   height: 20px;
   width: 20px;
   right: 10px;
-  top: 13px;
+  top: calc(1em - 1.5vh - 0.8vw);
   fill: white;
   transition: transform 0.4s;
 }
@@ -848,22 +835,6 @@ button {
   }
 }
 
-@media all and (min-width: 420px) {
-  .flip-card {
-    height: 13em;
-    width: 13em;
-  }
-
-  .projects-list {
-    width: 98vw;
-  }
-
-  .projects-list img {
-    height:calc(15em - 1vh);
-    width:calc(15em - 1vw);
-  }
-}
-
 @media all and (min-width: 500px) {
   .hamburger, .home-links hr {
     display: none;
@@ -907,7 +878,59 @@ button {
   }
 
   .skills-container {
-    height: calc(100% - 69px - 50px);
+    height: calc(100vh - 4.4em);
+  }
+
+  .mountain-content > .flip-card {
+    display: initial;
+  }
+
+  .mobile-projects {
+    display: none;
+  }
+
+  .flip-card {
+    position: absolute;
+    height: 13em;
+    width: 13em;
+    bottom: 35%;
+  }
+
+  .projects-list img {
+    transition: box-shadow 0.4s;
+    border-radius: 10px;
+    height:calc(15em - 1vh);
+    width:calc(15em - 1vw);
+  }
+
+  .projects-list {
+    position: absolute;
+    display: flex;
+    text-align: center;
+    align-items: flex-end;
+    bottom: calc(7vh);
+    overflow: auto;
+    align-items: center;
+    width: calc(99vw - 5px);
+    left: 5px;
+    font-size: clamp(0.5rem, 0.6vw, 1vh);
+    width: 98vw;
+  }
+  
+  .projects-list li {
+    display: flex;
+    align-items: space-between;
+    padding: 10px;
+  }
+  
+  .projects-list li:first-of-type {
+    padding: 10px 10px 10px 0;
+  }
+  
+  .projects-list li:hover img {
+    transition: box-shadow 0.4s;
+    border-radius: 10px;
+    box-shadow: 0 0 12px 0px #a6cfdf;
   }
   
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { defaultProject } from "../../App";
 import Astronaut from "../icons/astronaut";
 import Rocket from "../icons/rocket";
+import MainCards from "./mobile_projects";
 
 function Projects({setMainProject}) {
     return (
@@ -17,7 +18,6 @@ function Projects({setMainProject}) {
                         <img src="https://user-images.githubusercontent.com/74139058/172012440-6fa162a3-ab2e-4faf-8ba3-aa2b650217dd.jpg" alt="chess game"/>
                     </a>
                 </li>
-
                 <li>
                     <a onClick={e => setMainProject({title: "Path Finder", description: "Path Finder is an application that helps users visualize/compare different maze algorithms.", image: "https://user-images.githubusercontent.com/74139058/172012437-f9f92694-48f1-42d9-bc35-98a99735f204.jpg", link: "https://maze-solver-semantic.herokuapp.com/", alt: "maze solver", github: "https://github.com/semanticsatiation/maze-runner"})} target="_blank" rel="noreferrer noopener">
                         <img src="https://user-images.githubusercontent.com/74139058/172012437-f9f92694-48f1-42d9-bc35-98a99735f204.jpg" alt="solved maze"/>
@@ -40,6 +40,8 @@ function Projects({setMainProject}) {
                     </a>
                 </li>
             </ul>
+
+            <MainCards/>
 
             <div className="mountain-container">
                 <img className="mountain" src="https://user-images.githubusercontent.com/74139058/141395678-2672719c-641e-4d53-8c2f-fbe14110216b.png" alt="mountain"/>
