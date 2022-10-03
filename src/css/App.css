@@ -257,29 +257,34 @@ html {
   text-align: center;
 }
 
+.expose-home-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
 .home-links:hover {
   cursor: pointer;
   filter: brightness(150%);
 }
 
-.home-links > a:nth-child(5) {
+/* prevents Resume from being underlined */
+.home-links a:nth-child(5) {
   text-decoration: none;
 }
 
-.home-links:hover > a {
+.home-links > div a {
   display: initial;
   width: 100%;
   padding: 8px;
 }
 
-.home-links:hover hr {
+.home-links > div hr {
   display: initial;
   width: 50%;
   border-radius: 100%;
-}
-
-.home-links > a, .home-links hr {
-  display: none;
 }
 
 .home-links a:not(:first-child) {
@@ -841,9 +846,7 @@ button {
   }
   
   .home-links {
-    display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: row;
     position: relative;
     z-index: initial;
@@ -851,26 +854,17 @@ button {
     padding: 20px;
     border-radius: 10px;
     border-bottom: none;
+    pointer-events: default;
+  }
+
+  .expose-home-links {
+    display: flex!;
   }
 
   .home-links:hover {
     cursor: initial;
     filter: brightness(initial);
     height: initial;
-  }
-
-  .home-links:hover > a {
-    width: initial;
-    padding: initial;
-  }
-  
-
-  .home-links:hover hr {
-    display: none;
-  }
-  
-  .home-links > a {
-    display: initial;
   }
 
   .ghost-div {
@@ -896,25 +890,25 @@ button {
     bottom: 35%;
   }
 
-  .projects-list img {
-    transition: box-shadow 0.4s;
-    border-radius: 10px;
-    height:calc(15em - 1vh);
-    width:calc(15em - 1vw);
-  }
-
   .projects-list {
     position: absolute;
     display: flex;
     text-align: center;
     align-items: flex-end;
-    bottom: calc(7vh);
+    bottom: calc(8vh);
     overflow: auto;
     align-items: center;
     width: calc(99vw - 5px);
     left: 5px;
     font-size: clamp(0.5rem, 0.6vw, 1vh);
     width: 98vw;
+  }
+
+  .projects-list img {
+    transition: box-shadow 0.4s;
+    border-radius: 10px;
+    height:calc(13em - 1vh);
+    width:calc(13em - 1vw);
   }
   
   .projects-list li {

@@ -63,6 +63,8 @@ function App() {
 
   const [mainProject, setMainProject] = useState(defaultProject);
 
+  const [hideMenu, setHideMenu] = useState(true);
+
   const handleResize = () => {
     setWindowStars();
 
@@ -78,7 +80,7 @@ function App() {
       setStarsAmount(20);
     }
   }
-    
+
   useEffect(() => {
     window.addEventListener('resize', handleResize);
 
@@ -232,6 +234,23 @@ function App() {
     }
   }
 
+  const setMenu = (state) => {
+    if (window.innerWidth < 500) {
+      setHideMenu(state);
+    }
+  }
+
+  const Links = <>
+    <a className={`glow ${currentLink === aboutLink ? ("current-link") : ("")}`} onClick={showAbout}>About</a>
+    <hr/>
+    <a className={`glow ${currentLink === skillsLink ? ("current-link") : ("")}`} onClick={showSkills}>Skills</a>
+    <hr/>
+    <a className="glow" href="https://docs.google.com/document/d/1DQPFYJIr2aiuMMZvjc8Qi7Gps8EPxye81WBZCx3o1Fw/edit?usp=sharing" target="_blank" rel="noreferrer noopener">Resume</a>
+    <hr/>
+    <a className={`glow ${currentLink === projectsLink ? ("current-link") : ("")}`} onClick={showProjects}>Projects</a>
+    <hr/>
+    <a className={`glow ${currentLink === creditsLink ? ("current-link") : ("")}`} onClick={showCredits}>Credits</a>
+  </>
 
   return (
     <div className="home-container">
@@ -267,17 +286,22 @@ function App() {
         )
       }
 
-      <nav className='home-links'>
-        <a className={`glow ${currentLink === aboutLink ? ("current-link") : ("")}`} onClick={showAbout}>About</a>
-        <hr/>
-        <a className={`glow ${currentLink === skillsLink ? ("current-link") : ("")}`} onClick={showSkills}>Skills</a>
-        <hr/>
-        <a className="glow" href="https://docs.google.com/document/d/1DQPFYJIr2aiuMMZvjc8Qi7Gps8EPxye81WBZCx3o1Fw/edit?usp=sharing" target="_blank" rel="noreferrer noopener">Resume</a>
-        <hr/>
-        <a className={`glow ${currentLink === projectsLink ? ("current-link") : ("")}`} onClick={showProjects}>Projects</a>
-        <hr/>
-        <a className={`glow ${currentLink === creditsLink ? ("current-link") : ("")}`} onClick={showCredits}>Credits</a>
-        <Hamburger/>
+      <nav className='home-links' onMouseLeave={e => setMenu(true)} onClick={e => setMenu(!hideMenu)}>
+
+        {
+          window.innerWidth < 500 ? (
+            <>
+              <div className={hideMenu ? "remove" : "expose-home-links"}>
+               {Links}
+              </div>
+              <Hamburger/>
+            </>
+          ) : (
+            <>
+              {Links}
+            </>
+          )
+        }
       </nav>
 
       <div className="ghost-div"></div>
