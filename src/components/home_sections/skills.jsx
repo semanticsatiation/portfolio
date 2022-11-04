@@ -6,7 +6,8 @@ function Skills(params) {
         1: false,
         2: false,
         3: false,
-        4: false
+        4: false,
+        5: false
     });
 
     const hideMenu = (menuNumber) => {
@@ -102,6 +103,18 @@ function Skills(params) {
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" />
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h1 className="title" onClick={(e) => hideMenu(5)}>
+                    Content Management Systems
+                    <Arrow position={currentMenuState[5] ? ("rotate") : ("")}/>
+                </h1>
+                <ul className={`category ${currentMenuState[5] ? ("hide-menu") : ("expose-menu")}`}>
+                    <li>WordPress</li>
+                    <li> 
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" />
                     </li>
                 </ul>
             </li>

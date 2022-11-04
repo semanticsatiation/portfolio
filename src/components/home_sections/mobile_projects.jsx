@@ -6,6 +6,24 @@ function MainCards(params) {
             <li>
                 <div className='flip-card'>
                     <div className="flip-card-inner">
+                        <div className="flip-card-front" style={{backgroundImage: 'url(https://user-images.githubusercontent.com/74139058/200055158-6ba99272-db6e-411d-8132-e9223713aa59.png)'}}>
+                            <div>
+                                <h1>Client Portfolio</h1>
+                            </div>
+                        </div>
+                        <div className="flip-card-back">
+                            <p>Client portfolio built using WordPress.</p>
+                                
+                            <footer>
+                                <a href="https://senolldonley.com/" target="_blank" rel="noreferrer noopener">Live Website</a>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div className='flip-card'>
+                    <div className="flip-card-inner">
                         <div className="flip-card-front" style={{backgroundImage: 'url(https://user-images.githubusercontent.com/74139058/172012433-04d6c22f-df66-4955-b314-a63f9e49ca35.jpg)'}}>
                             <div>
                                 <h1>Bug Off</h1>

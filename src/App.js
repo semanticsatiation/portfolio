@@ -324,7 +324,11 @@ function App() {
                   
                 <footer>
                   <a href={mainProject.link} target="_blank" rel="noreferrer noopener">Live Website</a>
-                  <a href={mainProject.github} target="_blank" rel="noreferrer noopener">Github</a>
+                  {
+                    mainProject.github ? (
+                      <a href={mainProject.github} target="_blank" rel="noreferrer noopener">Github</a>
+                    ) : (null)
+                  }
                 </footer>
               </div>
             </div>

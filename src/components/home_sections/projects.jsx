@@ -14,6 +14,11 @@ function Projects({setMainProject}) {
                     </a>
                 </li>
                 <li>
+                    <a onClick={e => setMainProject({title: "Client Portfolio", description: "Client portfolio built using WordPress.", image: "https://user-images.githubusercontent.com/74139058/200055158-6ba99272-db6e-411d-8132-e9223713aa59.png", link: "https://senolldonley.com/", alt: "Actor's Portfolio"})} target="_blank" rel="noreferrer noopener">
+                        <img src="https://user-images.githubusercontent.com/74139058/200055158-6ba99272-db6e-411d-8132-e9223713aa59.png" alt="actor's portfolio page"/>
+                    </a>
+                </li>
+                <li>
                     <a onClick={e => setMainProject({title: "Chess", description: "Playable version of chess.", image: "https://user-images.githubusercontent.com/74139058/172012440-6fa162a3-ab2e-4faf-8ba3-aa2b650217dd.jpg", link: "https://chess-app-semantic.herokuapp.com/", alt: "chess game", github: "https://github.com/semanticsatiation/chess"})} target="_blank" rel="noreferrer noopener">
                         <img src="https://user-images.githubusercontent.com/74139058/172012440-6fa162a3-ab2e-4faf-8ba3-aa2b650217dd.jpg" alt="chess game"/>
                     </a>
