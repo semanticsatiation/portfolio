@@ -19,7 +19,7 @@ function Projects({setMainProject}) {
                     </a>
                 </li>
                 <li>
-                    <a onClick={e => setMainProject(defaultProject)} target="_blank" rel="noreferrer noopener">
+                    <a onClick={e => setMainProject({title: "Bug Off", description: "Bug Off is an issue tracking application that keeps the bugs in your personal projects at bay.  Invite others to help improve your projects!", image: "https://user-images.githubusercontent.com/74139058/172012433-04d6c22f-df66-4955-b314-a63f9e49ca35.jpg", link: "https://bugoff.herokuapp.com/#/login", alt: "bug off log in", github: "https://github.com/semanticsatiation/semanticsatiation.github.io"})} target="_blank" rel="noreferrer noopener">
                         <img src="https://user-images.githubusercontent.com/74139058/172012433-04d6c22f-df66-4955-b314-a63f9e49ca35.jpg" alt="bug off log in"/>
                     </a>
                 </li>
