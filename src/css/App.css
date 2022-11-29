@@ -185,11 +185,19 @@ html {
   backface-visibility: hidden;
 }
 
+
 .flip-card-front {
+  font-size: 0.6em;
+  text-decoration: underline;
   border-radius: 10px;
   border: 0.5px solid #f1f1f1;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+
+.mobile-projects li:nth-child(-n + 2) .flip-card .flip-card-front {
+  background-position: left;
+  background-size: cover;
 }
 
 .flip-card-back {
@@ -211,11 +219,6 @@ html {
   background: rgba(0, 0, 0, 0.752);
   border-radius: 10px;
   height: 100%;
-}
-
-.flip-card-front {
-  font-size: 0.6em;
-  text-decoration: underline;
 }
 
 .flip-card-back p {
@@ -241,6 +244,11 @@ html {
 
 .flip-card-back a:active {
   color: rgb(255, 255, 255);
+}
+
+.reposition-background {
+  background-position: right;
+  background-size: cover;
 }
 
 .home-links {
@@ -904,13 +912,31 @@ button {
     width: 98vw;
   }
 
-  .projects-list img {
-    transition: box-shadow 0.4s;
+  .projects-list img, .projects-list li:nth-child(-n + 2) div {
     border-radius: 10px;
     height:calc(13em - 1vh);
     width:calc(13em - 1vw);
   }
+
+  .projects-list li:nth-child(-n + 2) div {
+    background-size: cover;
+  }
+
+  /*  */
+
   
+  .projects-list li:first-child div {
+    background-position: center;
+  }
+
+  /* different background positions for first portfolio vs second */
+
+  .projects-list li:nth-child(2) div {
+    background-position: right;
+  }
+  
+
+  /*  */
   .projects-list li {
     display: flex;
     align-items: space-between;
@@ -921,12 +947,11 @@ button {
     padding: 10px 10px 10px 0;
   }
   
-  .projects-list li:hover img {
+  .projects-list li:hover img, .projects-list li:nth-child(-n + 2) div:hover {
     transition: box-shadow 0.4s;
     border-radius: 10px;
     box-shadow: 0 0 12px 0px #a6cfdf;
   }
-  
 }
 
 @media all and (min-width: 570px) {

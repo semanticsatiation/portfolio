@@ -19,7 +19,9 @@ const projectsLink = "projects";
 const creditsLink = "credits";
 const skillsLink = "skills";
 
-export const defaultProject = {title: "Bug Off", description: "Bug Off is an issue tracking application that keeps the bugs in your personal projects at bay.  Invite others to help improve your projects!", image: "https://user-images.githubusercontent.com/74139058/172012433-04d6c22f-df66-4955-b314-a63f9e49ca35.jpg", link: "https://bugoff.herokuapp.com/#/login", alt: "bug off log in", github: "https://github.com/semanticsatiation/semanticsatiation.github.io"};
+export const defaultProject = {
+  title: "Client Portfolio", description: "Client portfolio built using WordPress.", image: "https://user-images.githubusercontent.com/74139058/200055158-6ba99272-db6e-411d-8132-e9223713aa59.png", link: "https://senolldonley.com/", alt: "Actor's Portfolio"
+};
 
 function App() {
   const [windowSize, setWindowSize] = useState({
@@ -314,7 +316,7 @@ function App() {
         <div className={`mountain-content ${mountainClassAction}`}>
           <div className='flip-card'>
             <div className="flip-card-inner">
-              <div className="flip-card-front" style={{backgroundImage: 'url(' + mainProject.image + ')'}}>
+              <div className={`flip-card-front ${mainProject.title === "Client Portfolio" ? "reposition-background" : ""}`} style={{backgroundImage: 'url(' + mainProject.image + ')'}}>
                 <div>
                   <h1>{mainProject.title}</h1>
                 </div>

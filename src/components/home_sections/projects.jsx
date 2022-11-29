@@ -9,13 +9,18 @@ function Projects({setMainProject}) {
         <>
             <ul className="projects-list">
                 <li>
-                    <a onClick={e => setMainProject(defaultProject)} target="_blank" rel="noreferrer noopener">
-                        <img src="https://user-images.githubusercontent.com/74139058/172012433-04d6c22f-df66-4955-b314-a63f9e49ca35.jpg" alt="bug off log in"/>
+                    <a onClick={e => setMainProject({title: "Client Portfolio", description: "Client portfolio built using WordPress.", image: "https://user-images.githubusercontent.com/74139058/200055158-6ba99272-db6e-411d-8132-e9223713aa59.png", link: "https://senolldonley.com/", alt: "Actor's Portfolio"})} target="_blank" rel="noreferrer noopener">
+                        <div style={{backgroundImage: 'url(https://user-images.githubusercontent.com/74139058/200055158-6ba99272-db6e-411d-8132-e9223713aa59.png)'}} alt="actor's portfolio page"></div>
                     </a>
                 </li>
                 <li>
-                    <a onClick={e => setMainProject({title: "Client Portfolio", description: "Client portfolio built using WordPress.", image: "https://user-images.githubusercontent.com/74139058/200055158-6ba99272-db6e-411d-8132-e9223713aa59.png", link: "https://senolldonley.com/", alt: "Actor's Portfolio"})} target="_blank" rel="noreferrer noopener">
-                        <img src="https://user-images.githubusercontent.com/74139058/200055158-6ba99272-db6e-411d-8132-e9223713aa59.png" alt="actor's portfolio page"/>
+                    <a onClick={e => setMainProject({title: "Client Portfolio", description: "Client portfolio built using WordPress.", image: "https://user-images.githubusercontent.com/74139058/203438183-d7685a95-bcd8-4376-b8ac-f443d260a0fd.png", link: "https://erikdefrank.com/", alt: "Actor's Portfolio"})} target="_blank" rel="noreferrer noopener">
+                        <div style={{backgroundImage: 'url(https://user-images.githubusercontent.com/74139058/203438183-d7685a95-bcd8-4376-b8ac-f443d260a0fd.png)'}} alt="actor's portfolio page"></div>
+                    </a>
+                </li>
+                <li>
+                    <a onClick={e => setMainProject(defaultProject)} target="_blank" rel="noreferrer noopener">
+                        <img src="https://user-images.githubusercontent.com/74139058/172012433-04d6c22f-df66-4955-b314-a63f9e49ca35.jpg" alt="bug off log in"/>
                     </a>
                 </li>
                 <li>
