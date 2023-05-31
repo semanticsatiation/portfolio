@@ -108,7 +108,7 @@ function Skills(params) {
             </li>
             <li>
                 <h1 className="title" onClick={(e) => hideMenu(5)}>
-                    Content management Systems
+                    Content Management systems
                     <Arrow position={currentMenuState[5] ? ("rotate") : ("")}/>
                 </h1>
                 <ul className={`category ${currentMenuState[5] ? ("hide-menu") : ("expose-menu")}`}>
