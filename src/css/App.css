@@ -115,33 +115,6 @@ html {
   animation: PanToMountain 5s;
 }
 
-.mobile-projects {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: auto;
-  height: calc(100% - 4em);
-  gap: 10px;
-  width: 100%;
-}
-
-.mobile-projects > li:first-of-type {
-  margin-top: 5px;
-}
-
-.mobile-projects .flip-card {
-  position: relative;
-}
-
-.mountain-content > .flip-card {
-  display: none;
-}
-
-.projects-list {
-  display: none;
-}
-
 .main-project {
   display: flex;
   position: absolute;
@@ -157,8 +130,10 @@ html {
   background-color: transparent;
   display: flex;
   z-index: 0;
-  height: 9.5em;
-  width: 9.5em;
+  color: white;
+  height: 99%;
+  width: 99%;
+  font-size: calc(0.55em + 0.6vmin);
 }
 
 /* This container is needed to position the front and back side */
@@ -187,17 +162,11 @@ html {
 
 
 .flip-card-front {
-  font-size: 0.6em;
   text-decoration: underline;
   border-radius: 10px;
   border: 0.5px solid #f1f1f1;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-}
-
-.mobile-projects li:nth-child(-n + 2) .flip-card .flip-card-front {
-  background-position: left;
-  background-size: cover;
 }
 
 .flip-card-back {
@@ -223,15 +192,13 @@ html {
 
 .flip-card-back p {
   margin: 0;
-  font-size: 0.7em;
   font-weight: 700;
 }
 
-.flip-card-back footer {
+.flip-card-back div {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  font-size: 0.6em;
 }
 
 .flip-card-back a {
@@ -481,36 +448,31 @@ button {
   animation-fill-mode: forwards;
 }
 
-.astronaut {
-  z-index: 9999;
-  right: -3vw;
-  bottom: 1.2em;
-  border-radius: 10px;
-}
-
 .mountain-content .astronaut {
-  display: none;
+  position: absolute;
+  bottom: 1.3em;
+  z-index: 9999;
+  right: 0%;
 }
 
 .landed-rocket {
-  display: none;
-  bottom: calc(1.5em);
+  z-index: 9998;
+  position: absolute;
+  right: 1.5em;
+  bottom: 1.55em;
 }
 
-.landed-rocket, .landing-rocket {
+.mountain-content .astronaut, .landed-rocket .rocket-svg {
+  height: 5em;
+  width: 5em;
+}
+
+.landing-rocket {
   position: absolute;
   right: -1.5vw;
-}
-
-.mountain-content .astronaut, .home-container > .floating-astronaut {
-  position: absolute;
-  height: 20vh;
-  width: 20vw;
-}
-
-.landed-rocket .rocket-svg {
-  height: 26vh;
-  width: 26vw;
+  z-index: 9999;
+  animation: LandRocket 1.5s linear;
+  animation-fill-mode: forwards;
 }
 
 .landing-rocket .rocket-svg {
@@ -518,10 +480,10 @@ button {
   width: 10em;
 }
 
-.landing-rocket {
-  z-index: 9999;
-  animation: LandRocket 1.5s linear;
-  animation-fill-mode: forwards;
+.home-container > .floating-astronaut {
+  position: absolute;
+  height: 20vh;
+  width: 20vw;
 }
 
 .off-screen-rocket {
@@ -656,6 +618,23 @@ button {
 .rotate {
   top: 12px;
   transform: rotate(90deg);
+}
+
+.swiper {
+  bottom: 5%;
+  height: 13em;
+  width: 13em;
+  margin: 0 10px !important;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  display: none !important;
+}
+
+
+
+.swiper-pagination-bullet {
+  --swiper-pagination-bullet-inactive-color: #ffffff;
 }
 
 @keyframes GlowBlue {
@@ -882,84 +861,14 @@ button {
   .skills-container {
     height: calc(100vh - 4.4em);
   }
-
-  .mountain-content > .flip-card {
-    display: initial;
-  }
-
-  .mobile-projects {
-    display: none;
-  }
-
-  .flip-card {
-    position: absolute;
-    height: 13em;
-    width: 13em;
-    bottom: 35%;
-  }
-
-  .projects-list {
-    position: absolute;
-    display: flex;
-    text-align: center;
-    align-items: flex-end;
-    bottom: calc(8vh);
-    overflow: auto;
-    align-items: center;
-    width: calc(99vw - 5px);
-    left: 5px;
-    font-size: clamp(0.5rem, 0.6vw, 1vh);
-    width: 98vw;
-  }
-
-  .projects-list img, .projects-list li:nth-child(-n + 2) div {
-    border-radius: 10px;
-    height:calc(13em - 1vh);
-    width:calc(13em - 1vw);
-  }
-
-  .projects-list li:nth-child(-n + 2) div {
-    background-size: cover;
-  }
-
-  /*  */
-
-  
-  .projects-list li:first-child div {
-    background-position: center;
-  }
-
-  /* different background positions for first portfolio vs second */
-
-  .projects-list li:nth-child(2) div {
-    background-position: right;
-  }
-  
-
-  /*  */
-  .projects-list li {
-    display: flex;
-    align-items: space-between;
-    padding: 10px;
-  }
-  
-  .projects-list li:first-of-type {
-    padding: 10px 10px 10px 0;
-  }
-  
-  .projects-list li:hover img, .projects-list li:nth-child(-n + 2) div:hover {
-    transition: box-shadow 0.4s;
-    border-radius: 10px;
-    box-shadow: 0 0 12px 0px #a6cfdf;
-  }
 }
 
-@media all and (min-width: 570px) {
-  .projects-list {
-    width: 83vw;
+@media all and (min-width: 600px) {
+  .swiper-button-next, .swiper-button-prev {
+    display: initial !important;
   }
 
-  .landed-rocket, .mountain-content .astronaut {
-    display: initial;
+  .swiper-pagination {
+    display: none;
   }
 }

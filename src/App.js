@@ -19,10 +19,6 @@ const projectsLink = "projects";
 const creditsLink = "credits";
 const skillsLink = "skills";
 
-export const defaultProject = {
-  title: "Client Portfolio", description: "Client portfolio built using WordPress.", image: "https://user-images.githubusercontent.com/74139058/200055158-6ba99272-db6e-411d-8132-e9223713aa59.png", link: "https://senolldonley.com/", alt: "Actor's Portfolio"
-};
-
 function App() {
   const [windowSize, setWindowSize] = useState({
     width:  window.innerWidth,
@@ -62,8 +58,6 @@ function App() {
   const [currentLink, setCurrentLink] = useState(aboutLink);
 
   const [skipWarp, setSkipWarp] = useState(false);
-
-  const [mainProject, setMainProject] = useState(defaultProject);
 
   const [hideMenu, setHideMenu] = useState(true);
 
@@ -255,97 +249,78 @@ function App() {
   </>
 
   return (
-    <div className="home-container">
-      <div className="star-field">{
-        Array(starsAmount).fill().map((star, ind) => (
-          <Star key={ind} isWarp={isWarp} top={Math.floor((Math.random() * windowSize.height) + 1)} left={Math.floor((Math.random() * windowSize.width) + 1)} index={ind} speed={speed} starFieldWidth={windowSize.width} starFieldHeight={windowSize.height} />
-        ))
-      }</div>
-
-      {
-        !showSkillsSection && !showAboutSection && !showCreditSection && !skipWarp ? (
-          <div className={rocketClass}>
-            <Rocket/>
-            <div className={`flames ${isWarp || speed === 100 ? ("warp") : ("")}`}>
-              <Flame/>
-              <Flame/>
-              <Flame/>
-            </div>
-          </div>
-        ) : (null)
-      }
-
-      
-      {
-        exposePlanetAfar || exposePlanetClose ? (<Planet type={exposePlanetAfar ? ('far-planet') : ('close-planet')} />) : (null)
-      }
-
-      {
-        speed === 100 || showCreditSection || showSkillsSection ? (
-          null
-        ) : (
-          <FloatingAstronaut />
-        )
-      }
-
-      <nav className='home-links' onMouseLeave={e => setMenu(true)} onClick={e => setMenu(!hideMenu)}>
+    <>
+      <div className="home-container">
+        <div className="star-field">{
+          Array(starsAmount).fill().map((star, ind) => (
+            <Star key={ind} isWarp={isWarp} top={Math.floor((Math.random() * windowSize.height) + 1)} left={Math.floor((Math.random() * windowSize.width) + 1)} index={ind} speed={speed} starFieldWidth={windowSize.width} starFieldHeight={windowSize.height} />
+          ))
+        }</div>
 
         {
-          window.innerWidth < 500 ? (
-            <>
-              <div className={hideMenu ? "remove" : "expose-home-links"}>
-               {Links}
-              </div>
-              <Hamburger/>
-            </>
-          ) : (
-            <>
-              {Links}
-            </>
-          )
-        }
-      </nav>
-
-      <div className="ghost-div"></div>
-
-      {showAboutSection ? (<div className={`about-container ${aboutClassAction}`}><About/></div>) : (null)}
-
-      {showSkillsSection ? (<div className={`skills-container ${skillsClassAction}`}><Skills/></div>) : (null)}
-
-      {showProjectsSection ? (
-        <div className={`mountain-content ${mountainClassAction}`}>
-          <div className='flip-card'>
-            <div className="flip-card-inner">
-              <div className={`flip-card-front ${mainProject.title === "Client Portfolio" ? "reposition-background" : ""}`} style={{backgroundImage: 'url(' + mainProject.image + ')'}}>
-                <div>
-                  <h1>{mainProject.title}</h1>
-                </div>
-              </div>
-              <div className="flip-card-back">
-                <p>{mainProject.description}</p>
-                  
-                <footer>
-                  <a href={mainProject.link} target="_blank" rel="noreferrer noopener">Live Website</a>
-                  {
-                    mainProject.github ? (
-                      <a href={mainProject.github} target="_blank" rel="noreferrer noopener">Github</a>
-                    ) : (null)
-                  }
-                </footer>
+          !showSkillsSection && !showAboutSection && !showCreditSection && !skipWarp ? (
+            <div className={rocketClass}>
+              <Rocket/>
+              <div className={`flames ${isWarp || speed === 100 ? ("warp") : ("")}`}>
+                <Flame/>
+                <Flame/>
+                <Flame/>
               </div>
             </div>
+          ) : (null)
+        }
+
+        
+        {
+          exposePlanetAfar || exposePlanetClose ? (<Planet type={exposePlanetAfar ? ('far-planet') : ('close-planet')} />) : (null)
+        }
+
+        {
+          speed === 100 || showCreditSection || showSkillsSection ? (
+            null
+          ) : (
+            <FloatingAstronaut />
+          )
+        }
+
+        <nav className='home-links' onMouseLeave={e => setMenu(true)} onClick={e => setMenu(!hideMenu)}>
+
+          {
+            window.innerWidth < 500 ? (
+              <>
+                <div className={hideMenu ? "remove" : "expose-home-links"}>
+                {Links}
+                </div>
+                <Hamburger/>
+              </>
+            ) : (
+              <>
+                {Links}
+              </>
+            )
+          }
+        </nav>
+
+        <div className="ghost-div"></div>
+
+        {showAboutSection ? (<div className={`about-container ${aboutClassAction}`}><About/></div>) : (null)}
+
+        {showSkillsSection ? (<div className={`skills-container ${skillsClassAction}`}><Skills/></div>) : (null)}
+
+        {showProjectsSection ? (
+          <div className={`mountain-content ${mountainClassAction}`}>
+            <Projects/>
           </div>
-          <Projects setMainProject={setMainProject}/>
-        </div>
-      ) : (null)}
+        ) : (null)}
 
-      {showCreditSection ? (<div className={creditsClassAction}><Credits/></div>) : (null)}
+        {showCreditSection ? (<div className={creditsClassAction}><Credits/></div>) : (null)}
 
-      <footer>
-        <a className="icon-container" href="https://www.linkedin.com/in/benjamin-candelario-298449219/"><FontAwesomeIcon icon={faLinkedin} /></a>
-        <a className="icon-container" href="https://github.com/semanticsatiation"><FontAwesomeIcon icon={faGithubSquare} /></a>
-      </footer>
-    </div>
+        <footer>
+          <a className="icon-container" href="https://www.linkedin.com/in/benjamin-candelario-298449219/"><FontAwesomeIcon icon={faLinkedin} /></a>
+          <a className="icon-container" href="https://github.com/semanticsatiation"><FontAwesomeIcon icon={faGithubSquare} /></a>
+        </footer>
+      </div>
+    </>
   );
 }
 
